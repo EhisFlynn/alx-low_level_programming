@@ -1,13 +1,13 @@
 #include "main.h"
 
 int main(void)
-
 /**
- * main - Entry point
- *
- * Return: Always returns 0
- *
+ * main - main function
+ * _putchat: print the alphabets putchar
+ * Return: always 0
  */
+
+
 {
 	_putchar('_');
 	_putchar('p');

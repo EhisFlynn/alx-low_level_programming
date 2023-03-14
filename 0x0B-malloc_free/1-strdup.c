@@ -1,44 +1,33 @@
-#include "holberton.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
+
 /**
- * string_nconcat - concats strings
- * @s1: string one
- * @s2: string two
- * @n: n amount of bytes
- * Return: return a char val
+ * *_strdup - copies the string given as parameter
+ * @str: string to duplicate
+ *
+ * Return: pointer to the copied string (Success), NULL (Error)
  */
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+char *_strdup(char *str)
 {
-	unsigned int i, len1, len2;
-	char *s;
+	char *dup;
+	unsigned int i, len;
 
-	if (s2 == NULL)
-		s2 = "";
-	if (s1 == NULL)
-		s1 = "";
+	i = 0;
+	len = 0;
 
-	len1 = 0;
-	len2 = 0;
-	while (s2[len2] != '\0')
-		len2++;
-	while (s1[len1] != '\0')
-		len1++;
-
-	if (n >= len2)
-		n = len2;
-
-	s = malloc(sizeof(char) * n + len1 + 1);
-	if (s == NULL)
+	if (str == NULL)
 		return (NULL);
 
-	for (i = 0; i < len1; i++)
-		s[i] = s1[i];
+	while (str[len])
+		len++;
 
-	for (i = 0; i < n; i++)
-		s[i + len1] = s2[i];
+	dup = malloc(sizeof(char) * (len + 1));
 
-	s[i + len1] = '\0';
+	if (dup == NULL)
+		return (NULL);
 
-	return (s);
+	while ((dup[i] = str[i]) != '\0')
+		i++;
+
+	return (dup);
 }
